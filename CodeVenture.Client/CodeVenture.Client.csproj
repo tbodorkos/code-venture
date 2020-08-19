@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CodeVenture.Shared">
+      <HintPath>..\CodeVenture.Shared\bin\Debug\netcoreapp3.1\CodeVenture.Shared.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -1,3 +1,5 @@
+using CodeVenture.Client.Models;
+using CodeVenture.Client.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -19,6 +21,12 @@ namespace CodeVenture.Client
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOptions();
+            services.Configure<SudokuSettings>(Configuration.GetSection("Sudoku"));
+            
+            services.AddSingleton<ISudokuService, SudokuService>();
+
+            services.AddHttpClient();
             services.AddRazorPages();
             services.AddServerSideBlazor();
         }
