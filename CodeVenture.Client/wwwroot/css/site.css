@@ -136,6 +136,24 @@ app {
     top: 0.5rem;
 }
 
+table#sudokuTable { 
+    border-collapse: collapse; 
+    font-family: Calibri, sans-serif; 
+    margin-top: 1em; 
+}
+
+    table#sudokuTable colgroup, tbody { 
+        border: solid medium; 
+    }
+
+    table#sudokuTable td { 
+        border: solid thin; 
+        height: 1.6em; 
+        width: 1.6em; 
+        text-align: center; 
+        padding: 0; 
+    }
+
 @media (max-width: 767.98px) {
     .main .top-row:not(.auth) {
         display: none;

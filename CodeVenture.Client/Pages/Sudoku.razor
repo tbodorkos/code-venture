@@ -1,0 +1,39 @@
+@page "/sudoku"
+
+@using CodeVenture.Shared.DTOs
+@using CodeVenture.Client.Services
+
+@inject ISudokuService _sudokuService
+
+<h1>Sudoku</h1>
+
+<button class="btn btn-primary" @onclick="GenerateRandom">Generate</button>
+
+<table id="sudokuTable">
+    <colgroup><col><col><col></colgroup>
+    <colgroup><col><col><col></colgroup>
+    <colgroup><col><col><col></colgroup>
+    <tbody>
+        @for (int i = 0; i < SIZE; ++i)
+        {      
+            <tr>
+                @for (int j = 0; j < SIZE ; ++j)
+                {
+                    <td>
+                        @Grid.Grid[i, j].ToString()
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private readonly int SIZE = 9;
+    private SudokuGrid Grid { get; set; } = new SudokuGrid();
+
+    private async Task GenerateRandom()
+    {
+        Grid = await _sudokuService.GenerateRandomGrid();
+    } 
+}
